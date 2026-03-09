@@ -135,27 +135,81 @@ const NewsCarousel = () => {
 
 const App = () => {
   const team = [
-    { name: "Shaine Perera", role: "Software Developer & Project Manager", type: "High-Tier Cyber-Link", theme: "v4-cyber", stats: { cost: "100", power: "99", defense: "85" }, desc: "Master of logical manifestations. Oversees the Nexus architecture with surgical precision.", image: shaineArt, icon: Cpu },
-    { name: "Solomon Vance", role: "Lead Systems Architect", type: "Mythic Data-Weaver", theme: "v4-cyber", stats: { cost: "80", power: "80", defense: "95" }, desc: "Keeper of the core protocols. His algorithms are the foundation of StoryBored's reality.", image: archmageArt, icon: Sword },
-    { name: "Jax Hollow", role: "Audio Experience Lead", type: "Elite Noise-Scavenger", theme: "v4-cyber", stats: { cost: "60", power: "75", defense: "60" }, desc: "Transmutes mechanical discord into atmospheric perfection. The voice of the wasteland.", image: scavengerArt, icon: Flame }
+    { 
+      name: "Shaine Perera", 
+      role: "Software Developer & Project Manager", 
+      type: "High-Tier Cyber-Link", 
+      theme: "v4-cyber", 
+      stats: { cost: "100", power: "99", defense: "85" }, 
+      desc: "Master of logical manifestations. Oversees the Nexus architecture with surgical precision.", 
+      image: shaineArt, 
+      icon: Cpu 
+    },
+    { 
+      name: "Solomon Vance", 
+      role: "Lead Systems Architect", 
+      type: "Mythic Data-Weaver", 
+      theme: "v4-fantasy", 
+      stats: { cost: "85", power: "80", defense: "95" }, 
+      desc: "Keeper of the core protocols. His algorithms are the foundation of StoryBored's reality.", 
+      image: archmageArt, 
+      icon: Sword 
+    },
+    { 
+      name: "Jax Hollow", 
+      role: "Audio Experience Lead", 
+      type: "Elite Noise-Scavenger", 
+      theme: "v4-apoc", 
+      stats: { cost: "65", power: "75", defense: "60" }, 
+      desc: "Transmutes mechanical discord into atmospheric perfection. The voice of the wasteland.", 
+      image: scavengerArt, 
+      icon: Flame 
+    },
+    { 
+      name: "Lulu Star", 
+      role: "Narrative Designer", 
+      type: "Academy Prodigy", 
+      theme: "v4-school", 
+      stats: { cost: "50", power: "45", defense: "40" }, 
+      desc: "Weaves intricate realities from innocent dreams. A master of whimsical subversion.", 
+      image: schoolArt, 
+      icon: Star 
+    },
+    { 
+      name: "Freya Frost", 
+      role: "Lead Concept Artist", 
+      type: "Valkyrie Elite", 
+      theme: "v4-valk", 
+      stats: { cost: "90", power: "88", defense: "92" }, 
+      desc: "Wields the brush like a legendary blade. Capturing the frozen essence of folklore.", 
+      image: valkyrieArt, 
+      icon: Shield 
+    }
   ];
 
   return (
     <div className="min-h-screen bg-[#08080a] selection:bg-primary/30">
-      <nav className="top-nav-banner">
-        <div className="nav-links-left hidden md:flex items-center">
-          <a className="nav-link" href="#games">[ Games ]</a>
-          <a className="nav-link" href="#about">[ About ]</a>
-        </div>
-        
-        <div className="studio-logo-center">
-          <img src={StoryBoredLogo} alt="Logo" className="w-10 h-10 object-contain mb-1" />
-          <span className="pixel-font text-[10px] tracking-[-0.05em] text-white">STORYBORED STUDIOS</span>
-        </div>
+      <nav className="top-nav-banner" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
+        <div className="max-w-[1400px] w-full mx-auto px-10 flex justify-between items-center h-full">
+          <div className="nav-links-left hidden md:flex items-center gap-8">
+            <a className="nav-link" href="#games">[ Games ]</a>
+            <a className="nav-link" href="#about">[ About ]</a>
+          </div>
+          
+          <div className="studio-logo-center flex flex-col items-center">
+            <img 
+              src={StoryBoredLogo} 
+              alt="Logo" 
+              style={{ width: '40px', height: '40px' }} 
+              className="object-contain mb-1" 
+            />
+            <span className="pixel-font text-[9px] tracking-[-0.05em] text-white opacity-80">STORYBORED STUDIOS</span>
+          </div>
 
-        <div className="nav-links-right hidden md:flex items-center">
-          <a className="nav-link" href="#intel">[ Intel ]</a>
-          <a className="nav-link" href="#lab">[ Lab ]</a>
+          <div className="nav-links-right hidden md:flex items-center gap-8">
+            <a className="nav-link" href="#intel">[ Intel ]</a>
+            <a className="nav-link" href="#lab">[ Lab ]</a>
+          </div>
         </div>
       </nav>
 

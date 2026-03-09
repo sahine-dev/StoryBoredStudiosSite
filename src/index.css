@@ -84,24 +84,14 @@ body {
 
 /* TOP BANNER REFINEMENT */
 .top-nav-banner {
-  width: 100%;
   height: 80px;
-  background: rgba(8, 8, 10, 0.98);
-  backdrop-filter: blur(20px);
+  background: rgba(8, 8, 10, 0.95);
+  backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border-window);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
 }
 
 .studio-logo-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 40px;
+  min-width: 200px;
 }
 
 /* TCG V4 FRAME - CYBERPUNK (FOCUS) */
@@ -125,23 +115,57 @@ body {
   box-shadow: 0 0 30px rgba(0, 243, 255, 0.15), inset 0 0 20px rgba(0, 243, 255, 0.05);
 }
 
-.v4-cyber::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 40%, rgba(0, 243, 255, 0.1) 50%, transparent 60%);
-  background-size: 200% 200%;
-  animation: shine 6s linear infinite;
-  pointer-events: none;
+.v4-cyber .inner-border { border-color: rgba(0, 243, 255, 0.3); }
+
+/* Fantasy Theme Detail */
+.v4-fantasy {
+  border: 2px solid var(--fantasy-gold);
+  background: linear-gradient(180deg, #1a1a10 0%, #080805 100%);
 }
 
-.v4-cyber .inner-border {
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(0, 243, 255, 0.3);
-  pointer-events: none;
-  z-index: 1;
+.v4-fantasy .tcg-v4-header { background: rgba(255, 207, 75, 0.1); border-color: rgba(255, 207, 75, 0.3); }
+.v4-fantasy .tcg-v4-title { color: var(--fantasy-gold); text-shadow: 0 0 10px rgba(255, 207, 75, 0.5); }
+.v4-fantasy .tcg-v4-img-container { border-color: rgba(255, 207, 75, 0.2); }
+.v4-fantasy .tcg-v4-type-line { background: rgba(40, 30, 10, 0.9); border-color: var(--fantasy-gold); color: var(--fantasy-gold); }
+.v4-fantasy .tcg-v4-role-badge { background: var(--fantasy-gold); color: #000; }
+.v4-fantasy .tcg-v4-stat-box { border-color: var(--fantasy-gold); color: var(--fantasy-gold); box-shadow: 0 0 15px rgba(255, 207, 75, 0.2); }
+
+/* Apocalyptic Theme Detail */
+.v4-apoc {
+  border: 2px solid var(--apoc-red);
+  background: linear-gradient(180deg, #1a0a0a 0%, #080505 100%);
 }
+
+.v4-apoc .tcg-v4-header { background: rgba(255, 77, 0, 0.1); border-color: rgba(255, 77, 0, 0.3); }
+.v4-apoc .tcg-v4-title { color: var(--apoc-red); text-shadow: 0 0 10px rgba(255, 77, 0, 0.5); }
+.v4-apoc .tcg-v4-img-container { border-color: rgba(255, 77, 0, 0.2); }
+.v4-apoc .tcg-v4-type-line { background: rgba(40, 10, 10, 0.9); border-color: var(--apoc-red); color: var(--apoc-red); }
+.v4-apoc .tcg-v4-role-badge { background: var(--apoc-red); color: #fff; }
+.v4-apoc .tcg-v4-stat-box { border-color: var(--apoc-red); color: var(--apoc-red); box-shadow: 0 0 15px rgba(255, 77, 0, 0.2); }
+
+/* Anime School Theme */
+.v4-school {
+  border: 2px solid var(--school-pink);
+  background: linear-gradient(180deg, #1a1015 0%, #080507 100%);
+}
+
+.v4-school .tcg-v4-header { background: rgba(255, 133, 161, 0.1); border-color: rgba(255, 133, 161, 0.3); }
+.v4-school .tcg-v4-title { color: var(--school-pink); text-shadow: 0 0 10px rgba(255, 133, 161, 0.5); }
+.v4-school .tcg-v4-type-line { background: rgba(40, 10, 20, 0.9); border-color: var(--school-pink); color: var(--school-pink); }
+.v4-school .tcg-v4-role-badge { background: var(--school-pink); color: #000; }
+.v4-school .tcg-v4-stat-box { border-color: var(--school-pink); color: var(--school-pink); box-shadow: 0 0 15px rgba(255, 133, 161, 0.2); }
+
+/* Valkyrie Theme */
+.v4-valk {
+  border: 2px solid var(--valk-blue);
+  background: linear-gradient(180deg, #0a151a 0%, #050708 100%);
+}
+
+.v4-valk .tcg-v4-header { background: rgba(79, 174, 255, 0.1); border-color: rgba(79, 174, 255, 0.3); }
+.v4-valk .tcg-v4-title { color: var(--valk-blue); text-shadow: 0 0 10px rgba(79, 174, 255, 0.5); }
+.v4-valk .tcg-v4-type-line { background: rgba(10, 20, 40, 0.9); border-color: var(--valk-blue); color: var(--valk-blue); }
+.v4-valk .tcg-v4-role-badge { background: var(--valk-blue); color: #000; }
+.v4-valk .tcg-v4-stat-box { border-color: var(--valk-blue); color: var(--valk-blue); box-shadow: 0 0 15px rgba(79, 174, 255, 0.2); }
 
 .tcg-v4-header {
   height: 40px;
