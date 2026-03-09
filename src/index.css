@@ -1,26 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-dark: #050507;
-  --bg-accent: #0a0a0c;
+  --bg-dark: #08080a;
+  --bg-window: #121216;
   --primary: #8b5cf6;
-  --primary-glow: rgba(139, 92, 246, 0.4);
   --secondary: #ec4899;
-  --secondary-glow: rgba(236, 72, 153, 0.4);
   --accent: #22d3ee;
-  --accent-glow: rgba(34, 211, 238, 0.4);
   --emerald: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.4);
   --text-main: #f8f8f8;
-  --text-muted: #94a3b8;
-  --glass: rgba(255, 255, 255, 0.02);
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --glass-strong: rgba(255, 255, 255, 0.05);
-  
-  /* TCG Colors */
-  --cyberpunk-neon: #00f3ff;
+  --text-muted: #64748b;
+  --border-window: #2a2a32;
+  --cyber-neon: #00f3ff;
   --fantasy-gold: #ffcf4b;
-  --apocalypse-rust: #ff4d00;
+  --apoc-red: #ff4d00;
+  --school-pink: #ff85a1;
+  --valk-blue: #4faeff;
 }
 
 * {
@@ -29,270 +23,231 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
-  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
+.pixel-font { font-family: 'Silkscreen', cursive; }
+.mono-font { font-family: 'JetBrains Mono', monospace; }
 
-.mono { font-family: 'JetBrains+Mono', monospace; }
-
-.premium-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.glass-panel {
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-}
-
-.glass-panel-strong {
-  background: var(--glass-strong);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border);
-}
-
-/* TCG CARD STYLES */
-.tcg-card {
-  aspect-ratio: 63 / 88;
-  width: 320px;
-  position: relative;
+/* WINDOWED FRAMEWORK */
+.os-window {
+  background: var(--bg-window);
+  border: 2px solid var(--border-window);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  border-radius: 12px;
-  background: #111;
-  border: 8px solid #000;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
+  position: relative;
 }
 
-.tcg-card::before {
+.os-window::before {
   content: '';
   position: absolute;
-  inset: -100%;
-  background: linear-gradient(
-    115deg, 
-    transparent 0%, 
-    rgba(255,255,255,0.1) 45%, 
-    rgba(255,255,255,0.4) 50%, 
-    rgba(255,255,255,0.1) 55%, 
-    transparent 100%
-  );
-  transform: rotate(-20deg);
-  transition: 0.5s;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: rgba(255,255,255,0.1);
   z-index: 5;
-  pointer-events: none;
 }
 
-.tcg-card:hover::before {
-  left: 100%;
-}
-
-.tcg-card-content {
-  height: 100%;
-  display: flex;
-  flex-col: column;
-  padding: 12px;
-}
-
-.tcg-card-header {
+.os-title-bar {
+  height: 32px;
+  background: #1e1e24;
+  border-bottom: 2px solid var(--border-window);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  padding: 4px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px;
+  padding: 0 12px;
+  cursor: default;
 }
 
-.tcg-card-title {
-  font-size: 14px;
-  font-weight: 900;
+.os-title {
+  font-family: 'Silkscreen';
+  font-size: 10px;
+  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-.tcg-card-cost {
-  font-family: 'Outfit';
-  font-weight: 900;
-  font-size: 12px;
+.os-controls {
+  display: flex;
+  gap: 8px;
 }
 
-.tcg-card-image-box {
+.os-btn {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border-window);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--text-muted);
+}
+
+.os-btn:hover { background: rgba(255,255,255,0.05); }
+
+/* TOP BANNER */
+.top-nav-banner {
   width: 100%;
-  aspect-ratio: 1.2;
-  border: 2px solid #000;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 8px;
-  background: #1a1a1a;
+  height: 100px;
+  background: rgba(8, 8, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--border-window);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links-left, .nav-links-right {
+  display: flex;
+  gap: 32px;
+  padding: 0 40px;
+}
+
+.nav-link {
+  font-family: 'Silkscreen';
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-link:hover { color: var(--primary); }
+
+.studio-logo-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 40px;
+}
+
+/* NEWS CAROUSEL WRAPPER */
+.news-carousel-container {
+  width: 100vw;
+  margin-top: 100px;
   position: relative;
 }
 
-.tcg-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* TCG CARD ARCHITECTURE (MTG 63:88) */
+.tcg-frame {
+  width: 320px;
+  aspect-ratio: 63 / 88;
+  position: relative;
+  background: #000;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
 }
 
-.tcg-card-type-bar {
+.tcg-header {
+  height: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-bottom: 8px;
+}
+
+.tcg-image-box {
+  width: 100%;
+  height: 52%;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #111;
+  position: relative;
+}
+
+.tcg-type-bar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  margin: 8px 0;
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.tcg-card-desc-box {
+.tcg-text-box {
   flex-grow: 1;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 10px;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 11px;
+  line-height: 1.5;
   color: #ccc;
-  line-height: 1.4;
 }
 
-.tcg-card-stats {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: #000;
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-family: 'Outfit';
-  font-weight: 900;
-  font-size: 14px;
-  z-index: 10;
-}
-
-/* THEME SPECIFIC STATS */
-.card-cyberpunk { border-color: var(--cyberpunk-neon); box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
-.card-cyberpunk .tcg-card-header { background: rgba(0, 243, 255, 0.1); border-color: rgba(0, 243, 255, 0.3); }
-.card-cyberpunk .tcg-card-title { color: var(--cyberpunk-neon); }
-.card-cyberpunk .tcg-card-stats { background: var(--cyberpunk-neon); color: #000; }
-
-.card-fantasy { border-color: var(--fantasy-gold); box-shadow: 0 0 20px rgba(255, 207, 75, 0.2); }
-.card-fantasy .tcg-card-header { background: rgba(255, 207, 75, 0.1); border-color: rgba(255, 207, 75, 0.3); }
-.card-fantasy .tcg-card-title { color: var(--fantasy-gold); }
-.card-fantasy .tcg-card-stats { background: var(--fantasy-gold); color: #000; }
-
-.card-apocalyptic { border-color: var(--apocalypse-rust); box-shadow: 0 0 20px rgba(255, 77, 0, 0.2); }
-.card-apocalyptic .tcg-card-header { background: rgba(255, 77, 0, 0.1); border-color: rgba(255, 77, 0, 0.3); }
-.card-apocalyptic .tcg-card-title { color: var(--apocalypse-rust); }
-.card-apocalyptic .tcg-card-stats { background: var(--apocalypse-rust); color: #000; }
-
-/* HAMBURGER MENU overlay */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(5, 5, 7, 0.98);
-  backdrop-filter: blur(20px);
+.tcg-stats-footer {
+  height: 32px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.menu-link {
-  font-family: 'Outfit';
-  font-size: 5vw;
-  font-weight: 900;
-  text-transform: uppercase;
-  italic: true;
+.tcg-stat-badge {
+  background: rgba(0,0,0,0.85);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono';
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* THEMES */
+.theme-cyber { border-color: var(--cyber-neon); }
+.theme-cyber .tcg-stat-badge { color: var(--cyber-neon); border-color: var(--cyber-neon); box-shadow: 0 0 10px var(--cyber-neon); }
+.theme-cyber .tcg-header { background: rgba(0, 243, 255, 0.1); }
+
+.theme-fantasy { border-color: var(--fantasy-gold); }
+.theme-fantasy .tcg-stat-badge { color: var(--fantasy-gold); border-color: var(--fantasy-gold); }
+.theme-fantasy .tcg-header { background: rgba(255, 207, 75, 0.1); }
+
+.theme-apoc { border-color: var(--apoc-red); }
+.theme-apoc .tcg-stat-badge { color: var(--apoc-red); border-color: var(--apoc-red); }
+.theme-apoc .tcg-header { background: rgba(255, 77, 0, 0.1); }
+
+.theme-school { border-color: var(--school-pink); }
+.theme-school .tcg-stat-badge { color: var(--school-pink); border-color: var(--school-pink); }
+.theme-school .tcg-header { background: rgba(255, 133, 161, 0.1); }
+
+.theme-valk { border-color: var(--valk-blue); }
+.theme-valk .tcg-stat-badge { color: var(--valk-blue); border-color: var(--valk-blue); }
+.theme-valk .tcg-header { background: rgba(79, 174, 255, 0.1); }
+
+/* FOOTER */
+.studio-footer {
+  width: 100%;
+  padding: 40px;
+  border-top: 2px solid var(--border-window);
+  background: #08080a;
+  text-align: center;
+  font-family: 'Silkscreen';
+  font-size: 10px;
   color: var(--text-muted);
-  transition: all 0.4s;
-  cursor: pointer;
-}
-
-.menu-link:hover {
-  color: #fff;
-  transform: scale(1.1) translateX(20px);
-  letter-spacing: 0.1em;
-}
-
-.menu-link.active {
-  color: var(--primary);
-}
-
-/* CAROUSEL PAGINATION */
-.carousel-dot {
-  width: 40px;
-  height: 4px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-
-.carousel-dot.active {
-  background: var(--primary);
-  width: 80px;
-}
-
-.section-container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 120px 40px;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--glass-strong);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
 }
