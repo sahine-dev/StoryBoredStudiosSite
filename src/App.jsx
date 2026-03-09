@@ -17,9 +17,9 @@ import {
 
 // Assets
 import StoryBoredLogo from './assets/StoryBoredLogo.png';
-import StoryBoredLogoPixel from './assets/StoryBoredLogoPixel.png';
+import StoryBoredLogoPixel from './assets/StoryBoredLogo.png'; // Using color for now
 import gStoryBoredLogo from './assets/gStoryBoredLogo.png';
-import gPixStoryBoredLogo from './assets/gPixStoryBoredLogo.png';
+import gPixStoryBoredLogo from './assets/gStoryBoredLogo.png'; // Using grayscale for now
 
 import shaineArt from './assets/shaine_cyberpunk_tcg.png';
 import archmageArt from './assets/archmage_fantasy_tcg.png';
