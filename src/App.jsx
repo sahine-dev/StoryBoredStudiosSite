@@ -200,10 +200,10 @@ const App = () => {
             <img 
               src={StoryBoredLogo} 
               alt="Logo" 
-              style={{ width: '40px', height: '40px' }} 
+              style={{ width: '30px', height: '30px' }} 
               className="object-contain mb-1" 
             />
-            <span className="pixel-font text-[9px] tracking-[-0.05em] text-white opacity-80">STORYBORED STUDIOS</span>
+            <span className="pixel-font text-[8px] tracking-[-0.05em] text-white opacity-80">STORYBORED STUDIOS</span>
           </div>
 
           <div className="nav-links-right hidden md:flex items-center gap-8">
